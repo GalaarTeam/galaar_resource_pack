@@ -3,12 +3,15 @@ on:
   push:
     branches:
       - main
+    tags:
+      - "v*"
 jobs:
   release:
     name: Release GitHub Actions
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: gh release create latest --title "Galaar resource pack"
+      - run: gh release create $tag_name --title "Galaar resource pack"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: ${{ github.ref }}
