@@ -8,6 +8,9 @@ jobs:
     name: Release GitHub Actions
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+        with:
+          path: main
       - run: gh release create latest --title "Galaar resource pack"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
