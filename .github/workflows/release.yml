@@ -1,0 +1,13 @@
+name: Resource pack release
+on:
+  push:
+    branches:
+      - main
+jobs:
+  release:
+    name: Release GitHub Actions
+    runs-on: ubuntu-latest
+    steps:
+      - run: gh release create latest --title "Galaar resource pack"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
