@@ -21,6 +21,7 @@ jobs:
           minor_pattern: "(MINOR)"
           format: "${major}.${minor}.${patch}"
           change_path: "./"
+          search_commit_body: true
       - run: gh release create $tag_name --title "Galaar resource pack"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
